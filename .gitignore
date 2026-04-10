@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data pesada
+data/raw/
+*.nii
+*.nii.gz
+*.zip
+
+# Resultados
+results/
+
+# Entornos
+.env
+.venv
+env/
+venv/
+
+# OS
+.DS_Store
