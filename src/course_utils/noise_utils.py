@@ -2,43 +2,63 @@ import numpy as np
 
 
 # --------------------------------------------------
-# Ruido Gaussiano
+# Gaussian Noise
 # --------------------------------------------------
 
-def add_gaussian_noise(image: np.ndarray, sigma: float = 0.05):
+def add_gaussian_noise(image: np.ndarray, sigma: float = 0.05, rng=None):
     """
-    Agrega ruido gaussiano (media 0)
+    Add zero-mean Gaussian noise to an image.
 
-    sigma: desviación estándar relativa (asumiendo imagen en [0,1])
+    Parameters
+    ----------
+    image : np.ndarray
+        Input image in range [0, 1].
+    sigma : float
+        Standard deviation of the noise.
+    rng : np.random.Generator or None
+        Random number generator for reproducibility.
+
+    Returns
+    -------
+    noisy : np.ndarray
+        Noisy image clipped to [0, 1].
     """
-    noise = np.random.normal(loc=0.0, scale=sigma, size=image.shape)
+    if rng is None:
+        rng = np.random
+
+    noise = rng.normal(loc=0.0, scale=sigma, size=image.shape)
+    noisy = image + noise
+    return np.clip(noisy, 0.0, 1.0)
+
+# --------------------------------------------------
+# Uniform Niose
+# --------------------------------------------------
+
+def add_uniform_noise(image: np.ndarray, low: float = -0.1, high: float = 0.1, rng=None):
+    """
+    Add uniform noise U(low, high) to an image.
+    """
+    if rng is None:
+        rng = np.random
+
+    noise = rng.uniform(low, high, size=image.shape)
     noisy = image + noise
     return np.clip(noisy, 0.0, 1.0)
 
 
 # --------------------------------------------------
-# Ruido Uniforme
+# Salt & Pepper Noise
 # --------------------------------------------------
 
-def add_uniform_noise(image: np.ndarray, low: float = -0.1, high: float = 0.1):
+def add_salt_pepper_noise(image: np.ndarray, prob: float = 0.02, rng=None):
     """
-    Agrega ruido uniforme U(low, high)
+    Add salt and pepper noise to an image.
     """
-    noise = np.random.uniform(low, high, size=image.shape)
-    noisy = image + noise
-    return np.clip(noisy, 0.0, 1.0)
+    if rng is None:
+        rng = np.random
 
-
-# --------------------------------------------------
-# Ruido sal y pimienta (opcional)
-# --------------------------------------------------
-
-def add_salt_pepper_noise(image: np.ndarray, prob: float = 0.02):
-    """
-    Ruido sal y pimienta (no requerido pero útil)
-    """
     noisy = image.copy()
-    rnd = np.random.rand(*image.shape)
+    rnd = rng.random(image.shape)
 
     noisy[rnd < prob / 2] = 0.0
     noisy[rnd > 1 - prob / 2] = 1.0
