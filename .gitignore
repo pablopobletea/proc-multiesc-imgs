@@ -8,13 +8,17 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data pesada
-data/raw/
+# Data pesada
+data/raw/*
+!data/raw/task2/
+!data/raw/task2/README.md
+
 *.nii
 *.nii.gz
 *.zip
 
 # Resultados
-results/
+#results/
 
 # Entornos
 .env
