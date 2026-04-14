@@ -9,14 +9,14 @@
 
 ## Descripción
 
-Este repositorio contiene el desarrollo de la **Tarea 2** del curso de Procesamiento Multiescala de Imágenes.
+Repositorio de la **Tarea 2** de la asignatura: IEE3787 - Procesamiento Multiescala de Imágenes
 
 Se abordan dos problemas principales:
 
 - Evaluación perceptual de imágenes 3D (MRI) utilizando una extensión de HaarPSI (WavePsi)
 - Denoising de imágenes 2D mediante Transformada Discreta de Wavelets (DWT)
 
-El proyecto incluye implementación en Python, análisis cuantitativo y cualitativo, generación de figuras e informe final en LaTeX.
+El proyecto incluye implementación en Python, análisis cuantitativo y cualitativo, generación de figuras e informe final.
 
 ---
 
