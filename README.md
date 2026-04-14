@@ -5,6 +5,7 @@
 ![Jupyter](https://img.shields.io/badge/jupyter-notebook-orange)
 ![Image Processing](https://img.shields.io/badge/domain-image_processing-blueviolet)
 ![Status](https://img.shields.io/badge/status-completed-success)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Descripción
 
