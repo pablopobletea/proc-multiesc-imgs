@@ -75,7 +75,7 @@ El informe final de la Tarea 3 se encuentra disponible en:
 ---
 
 ## Estructura del repositorio
-
+```text
 proc-multiesc-imgs/
 ├── src/course_utils/
 │   ├── io_utils.py
@@ -103,7 +103,6 @@ proc-multiesc-imgs/
 └── assignments/
     ├── task2/report/
     └── task3/report/
-
 ```
 
 ---
